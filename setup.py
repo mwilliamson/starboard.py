@@ -8,7 +8,7 @@ def read(fname):
 
 setup(
     name='starboard',
-    version='0.1.0',
+    version='0.1.1',
     description='Utilities to help with networking',
     long_description=read("README"),
     author='Michael Williamson',
