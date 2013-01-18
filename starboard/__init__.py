@@ -2,12 +2,7 @@ import socket
 
 
 def find_local_free_tcp_port():
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    try:
-        s.bind(("", 0))
-        return s.getsockname()[1]
-    finally:
-        s.close()
+	return find_local_free_tcp_ports(number=1)[0]
 
 
 def find_local_free_tcp_ports(number):
