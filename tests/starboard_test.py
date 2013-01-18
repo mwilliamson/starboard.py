@@ -15,6 +15,18 @@ def can_start_server_on_free_port():
 
 
 @istest
+def can_get_multiple_free_ports_at_once():
+    port1, port2, port3 = starboard.find_local_free_tcp_ports(number=3)
+    
+    with _start_server(port=port1):
+		with _start_server(port=port2):
+			with _start_server(port=port3):
+				_assert_server_is_running("localhost", port=port1)
+				_assert_server_is_running("localhost", port=port2)
+				_assert_server_is_running("localhost", port=port3)
+
+
+@istest
 def can_communicate_with_localhost_using_found_local_hostname():
     hostname = starboard.find_local_hostname()
     port = starboard.find_local_free_tcp_port()
