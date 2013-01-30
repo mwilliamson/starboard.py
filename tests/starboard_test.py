@@ -2,7 +2,6 @@ import threading
 import socket
 
 from nose.tools import istest, assert_equals
-import requests
 
 import starboard
 
