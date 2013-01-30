@@ -6,15 +6,31 @@ from nose.tools import istest, assert_equals
 import starboard
 
 
+# TODO: The UDP tests are extremely weak
 @istest
-def can_start_server_on_free_port():
+def can_get_free_udp_port():
+    port = starboard.find_local_free_udp_port()
+    assert port > 0
+    assert port < 65536
+
+
+@istest
+def can_get_multiple_free_udp_ports_at_once():
+    ports = starboard.find_local_free_udp_ports(number=3)
+    for port in ports:
+        assert port > 0
+        assert port < 65536
+
+
+@istest
+def can_start_server_on_free_tcp_port():
     port = starboard.find_local_free_tcp_port()
     with _start_server(port=port):
         _assert_server_is_running(hostname="localhost", port=port)
 
 
 @istest
-def can_get_multiple_free_ports_at_once():
+def can_get_multiple_free_tcp_ports_at_once():
     port1, port2, port3 = starboard.find_local_free_tcp_ports(number=3)
     
     with _start_server(port=port1):

@@ -8,6 +8,14 @@ Finds a free TCP port on the local machine.
 
 Finds the specified number of free TCP ports on the local machine.
 
+### starboard.find_local_free_udp_port()
+
+Finds a free UDP port on the local machine.
+
+### starboard.find_local_free_udp_ports(number)
+
+Finds the specified number of free UDP ports on the local machine.
+
 ### starboard.find_local_hostname()
 
 Finds the local hostname by connecting to Google's public DNS
