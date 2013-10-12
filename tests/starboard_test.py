@@ -65,7 +65,7 @@ def _start_server(port):
                     connection, client_address = sock.accept()
                     try:
                         connection.recv(1024)
-                        connection.sendall("who's there?")
+                        connection.sendall(b"who's there?")
                     finally:
                         connection.close()
             except:
@@ -88,8 +88,8 @@ def _assert_server_is_running(hostname, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
         sock.connect((hostname, port))
-        sock.sendall("knock knock")
+        sock.sendall(b"knock knock")
         data_received = sock.recv(1024)
-        assert_equals("who's there?", data_received)
+        assert_equals(b"who's there?", data_received)
     finally:
         sock.close()
