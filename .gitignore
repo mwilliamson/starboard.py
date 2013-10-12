@@ -2,3 +2,5 @@
 _virtualenv
 starboard.egg-info
 /.tox
+/MANIFEST
+/README
