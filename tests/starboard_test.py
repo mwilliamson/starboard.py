@@ -34,11 +34,11 @@ def can_get_multiple_free_tcp_ports_at_once():
     port1, port2, port3 = starboard.find_local_free_tcp_ports(number=3)
     
     with _start_server(port=port1):
-		with _start_server(port=port2):
-			with _start_server(port=port3):
-				_assert_server_is_running("localhost", port=port1)
-				_assert_server_is_running("localhost", port=port2)
-				_assert_server_is_running("localhost", port=port3)
+        with _start_server(port=port2):
+            with _start_server(port=port3):
+                _assert_server_is_running("localhost", port=port1)
+                _assert_server_is_running("localhost", port=port2)
+                _assert_server_is_running("localhost", port=port3)
 
 
 @istest
