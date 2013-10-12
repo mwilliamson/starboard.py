@@ -12,6 +12,7 @@ setup(
     description='Utilities to help with networking',
     long_description=read("README"),
     author='Michael Williamson',
+    author_email='mike@zwobble.org',
     url='http://github.com/mwilliamson/starboard.py',
     packages=['starboard'],
 )
